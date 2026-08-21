@@ -1,0 +1,58 @@
+## 軟體安裝
+codex
+git
+nodejs
+python
+coreutils
+ffmpeg
+yt-dlp
+imagemagick
+環境變數說明
+
+vscode
+vscode liveserver
+vscode codex extension
+
+## 常見資料格式
+csv
+json
+html
+markdown
+
+## 文件整理
+
+## 信箱整理
+
+## 圖片操作 ppt 建立
+產生圖片
+sbir 簡報
+
+## 影片操作 1
+影片合併
+切割影片
+
+## vibe coding
+todo list
+qrcode 產生器
+
+## 基本網站概念 前端後端概念說明 cli 概念說明
+127.0.0.1
+localhost
+port:80 443
+
+## 前端網頁上架
+上架到 vercel
+codepen
+
+## vibe coding 自己的 chrome extension
+同事的照妖鏡
+
+
+09:00 ~ 10:00 (環境建置/常見資料格式/提示詞相關原理/skill/mcp)
+10:00 ~ 11:00 (codex基本用法/資料夾/檔案/信件分類整理/excel應用)
+11:00 ~ 12:00 (圖片生成/sbir簡報/yt影片抓取/翻譯韓劇/日劇/美劇)
+12:00 ~ 13:00 (休息)
+13:00 ~ 14:00 (vibe coding 前後端基本概念)
+14:00 ~ 15:00 (chrome extension製作/把公司網站變成自己的 skill)
+15:00 ~ 16:00 (預留凱森 or 小明業界經驗分享, 如無意願則補其他主題)
+16:00 ~ 17:00 (主任時間)
