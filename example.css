@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("https://raw.githubusercontent.com/weber87na/flowers/refs/heads/master/baseball_field.jpg") center/cover;
+    filter: blur(10px);
+    transform: scale(1.1);
+    z-index: -1
+}
+
+.main {
+    width: 325px;
+    height: 750px;
+    position: relative
+}
+
+.main>img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain
+}
+
+.screen {
+    position: absolute;
+    inset: -50px 0 0;
+    margin: auto;
+    width: 300px;
+    height: 400px;
+    background: #000;
+    border: 1px solid #fff3
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain
+}
+
+.btn {
+    position: absolute;
+    bottom: -95px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer
+}
+
+.pic {
+    position: fixed;
+    right: 50px;
+    width: 350px;
+    height: 400px;
+    background: #fff;
+    border: 1px solid #888;
+    box-shadow: 5px 5px 15px #444;
+    transform: rotate(-5deg)
+}
+
+#canvas {
+    width: 300px;
+    height: 300px;
+    margin: 25px;
+    background: #000c;
+    box-shadow: 5px 5px 10px #ccc;
+    object-fit: contain
+}
+
+.sign {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    width: 72px;
+    height: 56px;
+    background: url("https://raw.githubusercontent.com/weber87na/flowers/master/chun-sign.png") center/cover
+}
