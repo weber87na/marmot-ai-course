@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "NKUST 通訊錄照片與綽號",
+  "version": "1.0.0",
+  "description": "在高科大 elearning 課程通訊錄中，以本機名單補上照片與綽號。",
+  "minimum_chrome_version": "109",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://elearning.nkust.edu.tw/moocs/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "114/*.png",
+        "115/*.png"
+      ],
+      "matches": [
+        "https://elearning.nkust.edu.tw/*"
+      ]
+    }
+  ]
+}

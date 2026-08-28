@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NKUST 通訊錄擴充功能測試</title>
+    <link rel="stylesheet" href="../content.css">
+    <style>
+      body { margin: 0; background: #f4f7fb; color: #202124; font: 16px/1.5 Arial, sans-serif; }
+      main { max-width: 1120px; margin: 0 auto; padding: 72px 24px; }
+      h1 { margin: 0 0 64px; text-align: center; }
+      .directory { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0 24px; }
+      .profile-card { position: relative; height: 142px; margin: 0 0 80px; padding: 15px; border-radius: 8px; background: white; box-shadow: 0 2px 7px #162b4520; }
+      .profile-header { position: relative; display: flex; margin-top: 24px; flex-direction: column; align-items: center; }
+      .profile { position: absolute; width: 90px; height: 90px; margin: -80px 0 10px -40px; border-radius: 50%; background: #dfe4e8; }
+      .profile-info p, .profile-details p { margin: 5px 0; }
+      .profile-info p { margin: 0; }
+      .profile-details { margin-top: 10px; }
+    </style>
+    <script>
+      window.chrome = window.chrome || {};
+      window.chrome.runtime = {
+            getURL(path) {
+              return new URL(`../${path}`, location.href).href;
+            },
+            async sendMessage(message) {
+              if (message?.type !== 'NKUST_GET_LOCAL_ROSTER') return { ok: false };
+              const sources = [
+                ['114', '../114/114名單簡單.json'],
+                ['115', '../115/115名單簡單.json']
+              ];
+              const groups = await Promise.all(sources.map(async ([year, path]) => {
+                const rows = await fetch(path).then((response) => response.json());
+                return rows.map((row) => ({
+                  name: row['姓名'],
+                  nickname: row['綽號'],
+                  photoPath: `${year}/${row['照片']}`,
+                  year
+                }));
+              }));
+              return { ok: true, roster: groups.flat() };
+            }
+      };
+    </script>
+  </head>
+  <body>
+    <main>
+      <h1>通訊錄</h1>
+      <section class="directory">
+        <article class="profile-card">
+          <div class="profile-header">
+            <img class="profile" alt="Profile Picture" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Crect width='90' height='90' fill='%23dfe4e8'/%3E%3C/svg%3E">
+            <div class="profile-info"><p><b>李依純</b> J114256103</p></div>
+          </div>
+          <div class="profile-details"><p>nicolelee72@example.test</p><p>女</p></div>
+        </article>
+        <article class="profile-card">
+          <div class="profile-header">
+            <img class="profile" alt="Profile Picture" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Crect width='90' height='90' fill='%23dfe4e8'/%3E%3C/svg%3E">
+            <div class="profile-info"><p><b>徐毓敏</b> J115000001</p></div>
+          </div>
+          <div class="profile-details"><p>coco@example.test</p><p>女</p></div>
+        </article>
+        <article class="profile-card">
+          <div class="profile-header">
+            <img class="profile" alt="Profile Picture" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Crect width='90' height='90' fill='%23dfe4e8'/%3E%3C/svg%3E">
+            <div class="profile-info"><p><b>李金翰</b> J115000002</p></div>
+          </div>
+          <div class="profile-details"><p>hank@example.test</p><p>男</p></div>
+        </article>
+        <article class="profile-card">
+          <div class="profile-header">
+            <img class="profile" alt="Profile Picture" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Crect width='90' height='90' fill='%23dfe4e8'/%3E%3C/svg%3E">
+            <div class="profile-info"><p><b>不在名單的人</b> T0001</p></div>
+          </div>
+          <div class="profile-details"><p>teacher@example.test</p><p>男</p></div>
+        </article>
+      </section>
+    </main>
+    <script src="../content.js"></script>
+    <script>
+      setTimeout(() => {
+        const card = document.createElement('article');
+        card.className = 'profile-card';
+        card.innerHTML = `
+          <div class="profile-header">
+            <img class="profile" alt="Profile Picture" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Crect width='90' height='90' fill='%23dfe4e8'/%3E%3C/svg%3E">
+            <div class="profile-info"><p><b>張元明</b> J115000003</p></div>
+          </div>
+          <div class="profile-details"><p>jerry@example.test</p><p>男</p></div>`;
+        document.querySelector('.directory').append(card);
+      }, 400);
+    </script>
+  </body>
+</html>
