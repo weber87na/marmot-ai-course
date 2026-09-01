@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="一個純前端、黑白手繪風格的 QR Code 產生器。" />
+  <title>QR 小工坊｜手繪 QR Code 產生器</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="QR 小工坊首頁">
+        <span class="brand-mark" aria-hidden="true">QR</span>
+        <span class="brand-copy">
+          <strong>小小 QR 工坊</strong>
+          <span>把網址畫成小方塊！</span>
+        </span>
+      </a>
+      <div class="top-note">
+        <span class="top-note-dot" aria-hidden="true"></span>
+        純 HTML・CSS・JS
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span aria-hidden="true">✦</span> 今天要畫什麼？</p>
+          <h1 id="page-title">把網址變成<br /><span class="wobbly-word">QR 小方塊</span></h1>
+          <p class="hero-lede">貼上網址、放上你的 Logo，按一下就完成。<br />每一格都是黑白手繪的好心情。</p>
+        </div>
+        <div class="hero-doodle" aria-hidden="true">
+          <svg viewBox="0 0 260 180" role="presentation">
+            <path class="doodle-stroke" d="M13 112 C34 89 39 58 65 70 C87 80 78 108 100 111 C126 116 120 62 145 54 C170 46 165 103 190 111 C214 119 218 78 247 67" />
+            <path class="doodle-stroke doodle-stroke-thin" d="M26 137 C57 124 72 142 98 134 C122 126 140 144 166 133 C195 120 210 143 238 128" />
+            <path class="doodle-stroke" d="M104 22 L112 39 L131 41 L117 53 L121 72 L104 62 L87 72 L91 53 L77 41 L96 39 Z" />
+            <circle class="doodle-dot" cx="43" cy="42" r="5" />
+            <circle class="doodle-dot" cx="219" cy="34" r="4" />
+          </svg>
+          <span class="hero-caption">嗯！就是這樣～</span>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="QR Code 製作區">
+        <div class="panel controls-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="step-badge">1</span>
+              <h2>準備材料</h2>
+            </div>
+            <span class="heading-scribble" aria-hidden="true">↘</span>
+          </div>
+
+          <form id="qrForm" novalidate>
+            <div class="field-group url-group">
+              <label class="field-label" for="urlInput">你的網址</label>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">↗</span>
+                <input
+                  id="urlInput"
+                  name="url"
+                  type="text"
+                  inputmode="url"
+                  autocomplete="url"
+                  placeholder="https://example.com"
+                  spellcheck="false"
+                  aria-describedby="urlHint formMessage"
+                />
+              </div>
+              <p id="urlHint" class="field-hint">沒有寫 https:// 也沒關係，我會幫你補上。</p>
+            </div>
+
+            <fieldset class="field-group option-fieldset">
+              <legend class="field-label">QR Code 尺寸</legend>
+              <div class="choice-grid choice-grid-three">
+                <label class="choice-card">
+                  <input type="radio" name="outputSize" value="500" />
+                  <span class="choice-card-inner">
+                    <strong>500</strong>
+                    <small>× 500 px</small>
+                  </span>
+                </label>
+                <label class="choice-card selected">
+                  <input type="radio" name="outputSize" value="800" checked />
+                  <span class="choice-card-inner">
+                    <strong>800</strong>
+                    <small>× 800 px</small>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="outputSize" value="1000" />
+                  <span class="choice-card-inner">
+                    <strong>1000</strong>
+                    <small>× 1000 px</small>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field-group option-fieldset">
+              <legend class="field-label">容錯率</legend>
+              <div class="choice-grid choice-grid-three">
+                <label class="choice-card tolerance-card">
+                  <input type="radio" name="errorLevel" value="L" />
+                  <span class="choice-card-inner">
+                    <strong>低</strong>
+                    <small>適合沒有 Logo</small>
+                  </span>
+                </label>
+                <label class="choice-card tolerance-card selected">
+                  <input type="radio" name="errorLevel" value="M" checked />
+                  <span class="choice-card-inner">
+                    <strong>中</strong>
+                    <small>日常使用</small>
+                  </span>
+                </label>
+                <label class="choice-card tolerance-card">
+                  <input type="radio" name="errorLevel" value="H" />
+                  <span class="choice-card-inner">
+                    <strong>高</strong>
+                    <small>Logo 更安心</small>
+                  </span>
+                </label>
+              </div>
+              <p class="field-hint">Logo 越大，建議選「高」容錯率。</p>
+            </fieldset>
+
+            <div class="field-group logo-group">
+              <div class="label-line">
+                <label class="field-label" for="logoInput">上傳 Logo</label>
+                <span class="optional-label">可選</span>
+              </div>
+              <label class="upload-box" for="logoInput">
+                <input id="logoInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" />
+                <span class="upload-icon" aria-hidden="true">＋</span>
+                <span class="upload-copy">
+                  <strong>點這裡丟一張圖</strong>
+                  <small>PNG・JPG・WEBP，最大 5 MB</small>
+                </span>
+                <img id="logoThumb" class="logo-thumb" alt="目前上傳的 Logo 預覽" hidden />
+                <span id="logoFileName" class="logo-file-name" hidden></span>
+              </label>
+              <div class="logo-controls" id="logoControls" hidden>
+                <span id="logoReadyText" class="logo-ready">Logo 準備好了！</span>
+                <button id="removeLogoButton" class="text-button" type="button">移除 Logo</button>
+              </div>
+            </div>
+
+            <fieldset class="field-group option-fieldset">
+              <legend class="field-label">Logo 大小</legend>
+              <div class="choice-grid choice-grid-three">
+                <label class="choice-card logo-size-card">
+                  <input type="radio" name="logoSize" value="S" />
+                  <span class="choice-card-inner">
+                    <strong>小</strong>
+                    <small>低調一點</small>
+                  </span>
+                </label>
+                <label class="choice-card logo-size-card selected">
+                  <input type="radio" name="logoSize" value="M" checked />
+                  <span class="choice-card-inner">
+                    <strong>中</strong>
+                    <small>剛剛好</small>
+                  </span>
+                </label>
+                <label class="choice-card logo-size-card">
+                  <input type="radio" name="logoSize" value="L" />
+                  <span class="choice-card-inner">
+                    <strong>大</strong>
+                    <small>最醒目</small>
+                  </span>
+                </label>
+              </div>
+              <p class="field-hint">沒有上傳 Logo 時，這個選項不會影響 QR Code。</p>
+            </fieldset>
+
+            <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+
+            <div class="action-row">
+              <button id="generateButton" class="button button-primary" type="submit">
+                <span aria-hidden="true">✎</span>
+                產生 QR Code
+              </button>
+              <button id="clearButton" class="button button-ghost" type="button">
+                <span aria-hidden="true">↺</span>
+                全部清除
+              </button>
+            </div>
+          </form>
+
+          <div class="tiny-tip" aria-label="小提示">
+            <span class="tip-bulb" aria-hidden="true">☼</span>
+            <p><strong>小提示：</strong>掃描前，記得讓黑白方塊保持完整，不要裁掉白邊喔！</p>
+          </div>
+        </div>
+
+        <div class="panel preview-panel">
+          <div class="panel-heading preview-heading">
+            <div>
+              <span class="step-badge step-badge-dark">2</span>
+              <h2>看看成果</h2>
+            </div>
+            <span id="previewStatus" class="preview-status">還沒開始</span>
+          </div>
+
+          <div class="preview-stage" id="previewStage">
+            <div id="emptyState" class="empty-state">
+              <div class="empty-doodle" aria-hidden="true">
+                <span class="empty-eye eye-left"></span>
+                <span class="empty-eye eye-right"></span>
+                <span class="empty-mouth"></span>
+              </div>
+              <p>你的 QR Code<br /><strong>會在這裡出現！</strong></p>
+              <span class="empty-arrow" aria-hidden="true">↑</span>
+            </div>
+            <canvas id="qrCanvas" aria-label="產生的 QR Code" hidden></canvas>
+            <div id="previewLogoBadge" class="preview-logo-badge" hidden>LOGO</div>
+          </div>
+
+          <div class="result-info" id="resultInfo" hidden>
+            <div class="result-info-row">
+              <span>目前設定</span>
+              <strong id="resultSettings">800 × 800 px ・ 中容錯</strong>
+            </div>
+            <div class="result-info-row result-url-row">
+              <span>內容</span>
+              <strong id="resultUrl">—</strong>
+            </div>
+          </div>
+
+          <button id="downloadButton" class="button button-download" type="button" disabled>
+            <span aria-hidden="true">↓</span>
+            下載 PNG 圖檔
+          </button>
+          <p id="downloadHint" class="download-hint">完成後就可以把它帶走囉！</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>畫歪一點，也很可愛。</span>
+      <span class="footer-stars" aria-hidden="true">✦　✧　✦</span>
+      <span>不用安裝，直接在瀏覽器完成。</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

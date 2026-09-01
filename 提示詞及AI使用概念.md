@@ -12,6 +12,7 @@ prompt 為提示詞, 相信大家都用過 chatgpt
 
 ## user prompt
 
+## AGENTS.md
 
 ## context
 
