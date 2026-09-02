@@ -1,0 +1,4 @@
+interface:
+  display_name: "Weber 技術部落格風格"
+  short_description: "套用 Weber 口吻撰寫繁中技術筆記、教學與實作文章"
+  default_prompt: "Use $weber-blog-writing-style to draft this technical blog post in my usual Traditional Chinese voice."
