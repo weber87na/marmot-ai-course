@@ -1,0 +1,39 @@
+環境建置 => 做了但仍然有些問題
+常見資料格式 => ok
+基本命令 => ai 產生 (做一半)
+AI 基本概念 => 做一點點
+
+資料整理
+資料夾與文件整理 => ok
+信件整理 => ok
+
+文件操作
+excel & csv => 還沒處理
+word 資料填寫 => ok 履歷填寫, 週報
+
+多媒實戰
+提示詞生圖 => ok
+產生影片字幕 => ok
+旅遊規劃 => ok
+remotion 製作影片 => ok
+
+其他
+skill =>  blog 風格提煉 ok
+computer use 操作 line => ok
+
+======= 下午 =======
+
+vibe coding 前端
+
+QR Code => ok
+ToDo List => ok
+擲筊 => ok
+佛珠 => ok
+chrome extension 照妖鏡 => ok
+
+vibe coding 後端 => 還沒弄
+http request
+傅院被 hacker
+灌票
+
+ToDo List 後端
