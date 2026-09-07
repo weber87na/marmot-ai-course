@@ -1,0 +1,104 @@
+{
+  "source_directory": "D:\\手寫辨識",
+  "image_count": 7,
+  "transcription_note": "依影像可讀程度整理；不確定或被塗改的內容列在 uncertain_or_unreadable，不以猜測補字。",
+  "images": [
+    {
+      "file": "IMG_20200229_164327.jpg",
+      "recognized_text": [
+        "培根起司",
+        "川普肉醬",
+        "花生烤肉醬",
+        "胖到靠北",
+        "胖奇熱狗堡",
+        "PUNCH HOT DOG",
+        "EST. 2016",
+        "TABASCO",
+        "THRASHER MAGAZINE",
+        "O'NEAL",
+        "DRUNK."
+      ],
+      "uncertain_or_unreadable": [
+        "黑板上的粉筆字大多因磨損、反光與刮痕無法可靠辨識。"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "file": "IMG_20200402_210410.jpg",
+      "recognized_text": [
+        "2020.01.27"
+      ],
+      "uncertain_or_unreadable": [
+        "其餘藍筆內容為疑似簽名或抽象線條，無法判定為文字。",
+        "日期分隔符號看起來可能是句點或逗號。"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "file": "IMG_20201114_172951.jpg",
+      "recognized_text": [
+        "好吃！",
+        "冰棒",
+        "套餐三味"
+      ],
+      "uncertain_or_unreadable": [],
+      "confidence": "high"
+    },
+    {
+      "file": "IMG_20210508_151306.jpg",
+      "recognized_text": [
+        "煎餃",
+        "水煮",
+        "高麗菜 12粒 50元",
+        "韭菜 10粒 70元",
+        "蝦仁 10粒 70元",
+        "九層塔 10粒 60元",
+        "三色 10粒 60元",
+        "鯖魚 10粒 70元",
+        "椒麻雞 10粒 80元",
+        "（小辣）",
+        "保麗龍 +20元",
+        "請勿純冰品"
+      ],
+      "uncertain_or_unreadable": [
+        "椒麻雞下方另一組紅字括號內容已被塗改，無法辨識。"
+      ],
+      "confidence": "high"
+    },
+    {
+      "file": "IMG_20210906_120805.jpg",
+      "recognized_text": [
+        "煎餃",
+        "水煮",
+        "高麗菜 12粒 50元",
+        "韭菜 10粒 70元",
+        "蝦仁 10粒 70元",
+        "九層塔 10粒 60元",
+        "三色 10粒 60元",
+        "鯖魚 10粒 70元",
+        "椒麻雞 10粒 80元",
+        "（小辣）"
+      ],
+      "uncertain_or_unreadable": [],
+      "confidence": "high"
+    },
+    {
+      "file": "IMG_20211020_081449.jpg",
+      "recognized_text": [
+        "學校"
+      ],
+      "uncertain_or_unreadable": [
+        "筆記本上的藍筆塗寫為簽名或線條，無法可靠辨識。"
+      ],
+      "confidence": "high"
+    },
+    {
+      "file": "P_20180926_162345_vHDR_Auto.jpg",
+      "recognized_text": [],
+      "uncertain_or_unreadable": [
+        "木牌上的黑色印刷字樣殘缺且嚴重模糊，無法可靠辨識。"
+      ],
+      "confidence": "low"
+    }
+  ]
+}

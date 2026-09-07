@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>我的一天 | 待辦事項</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 24px;
+            background: #eef2eb;
+            color: #253c35;
+            font: 16px/1.6 system-ui;
+        }
+
+        main {
+            max-width: 640px;
+            margin: 8vh auto;
+            padding: 28px;
+            background: #fffef9;
+            border-radius: 24px;
+            box-shadow: 0 20px 80px #253c3512;
+        }
+
+        h1 {
+            font-size: 48px;
+            letter-spacing: -2px;
+            margin: 0;
+        }
+
+        p {
+            color: #65766c;
+        }
+
+        form,
+        li {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        input,
+        button {
+            font: inherit;
+            padding: 12px;
+            border: 1px solid #ced8cf;
+            border-radius: 10px;
+        }
+
+        #task {
+            flex: 1;
+            min-width: 0;
+        }
+
+        button {
+            background: #315c49;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #203f32;
+        }
+
+        button:disabled,
+        input:disabled {
+            cursor: wait;
+            opacity: .6;
+        }
+
+        ul {
+            padding: 0;
+            margin: 28px 0;
+        }
+
+        li {
+            padding: 16px 0;
+            border-bottom: 1px solid #e3e8df;
+        }
+
+        li label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        li label span {
+            overflow-wrap: anywhere;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .edit {
+            background: #65766c;
+        }
+
+        .delete {
+            background: #98504d;
+        }
+
+        :checked+span {
+            text-decoration: line-through;
+            opacity: .5;
+        }
+
+        @media (max-width: 520px) {
+            form {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            li {
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .actions {
+                width: 100%;
+                padding-left: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>我的一天。</h1>
+        <p>專注一點，進步一點。</p>
+
+        <form id="add">
+            <input type="text"
+                id="task"
+                placeholder="今天要做什麼？"
+                aria-label="新增待辦事項"
+                maxlength="200"
+                required>
+
+            <button type="submit">新增任務</button>
+        </form>
+
+        <ul id="list"></ul>
+
+        <p id="status"
+            role="status">載入任務中…</p>
+    </main>
+
+    <script>
+        const API_BASE_URL = 'http://127.0.0.1:8000/api';
+        const el = id => document.getElementById(id);
+        const addForm = el('add');
+        const taskInput = el('task');
+        const submitButton = addForm.querySelector('button');
+        const list = el('list');
+        const status = el('status');
+
+        let tasks = [];
+        let statusMessage = '';
+
+        function defaultStatus() {
+            if (!tasks.length) return '新的一天，從新增一項任務開始吧。';
+
+            return `還有 ${tasks.filter(task => !task.done).length} 項任務未完成`;
+        }
+
+        function render() {
+            list.replaceChildren();
+            status.textContent = statusMessage || defaultStatus();
+
+            tasks.forEach(task => {
+                const row = document.createElement('li');
+                const label = document.createElement('label');
+                const check = document.createElement('input');
+                const text = document.createElement('span');
+                const actions = document.createElement('div');
+                const edit = document.createElement('button');
+                const del = document.createElement('button');
+
+                check.type = 'checkbox';
+                check.checked = task.done;
+                check.setAttribute('aria-label', `標記完成：${task.text}`);
+                check.addEventListener('change', () => updateDone(task, check));
+
+                text.textContent = task.text;
+
+                actions.className = 'actions';
+
+                edit.type = 'button';
+                edit.className = 'edit';
+                edit.textContent = '編輯';
+                edit.setAttribute('aria-label', `編輯任務：${task.text}`);
+                edit.addEventListener('click', () => editTask(task));
+
+                del.type = 'button';
+                del.className = 'delete';
+                del.textContent = '刪除';
+                del.setAttribute('aria-label', `刪除任務：${task.text}`);
+                del.addEventListener('click', () => deleteTask(task, del));
+
+                label.append(check, text);
+                actions.append(edit, del);
+                row.append(label, actions);
+                list.append(row);
+            });
+        }
+
+        function showError(message) {
+            statusMessage = message;
+            status.textContent = message;
+        }
+
+        function clearMessage() {
+            statusMessage = '';
+        }
+
+        function setFormBusy(isBusy) {
+            taskInput.disabled = isBusy;
+            submitButton.disabled = isBusy;
+        }
+
+        async function getErrorMessage(response) {
+            const data = await response.json().catch(() => null);
+
+            if (Array.isArray(data?.detail)) {
+                return data.detail
+                    .map(error => error.msg)
+                    .filter(Boolean)
+                    .join('；');
+            }
+
+            return data?.detail || `伺服器錯誤（${response.status}）`;
+        }
+
+        async function request(path, options = {}) {
+            const response = await fetch(`${API_BASE_URL}${path}`, {
+                ...options,
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(options.headers || {})
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(await getErrorMessage(response));
+            }
+
+            if (response.status === 204) return null;
+            return response.json();
+        }
+
+        function replaceTask(updatedTask) {
+            tasks = tasks.map(task =>
+                task.id === updatedTask.id ? updatedTask : task
+            );
+        }
+
+        async function loadTasks() {
+            statusMessage = '載入任務中…';
+            render();
+
+            try {
+                tasks = await request('/tasks');
+                clearMessage();
+                render();
+            } catch (error) {
+                tasks = [];
+                render();
+                showError(`無法載入任務：${error.message}`);
+            }
+        }
+
+        async function addTask(event) {
+            event.preventDefault();
+
+            const text = taskInput.value.trim();
+            if (!text) return;
+
+            setFormBusy(true);
+            statusMessage = '新增任務中…';
+            render();
+
+            try {
+                const task = await request('/tasks', {
+                    method: 'POST',
+                    body: JSON.stringify({ text })
+                });
+                tasks.push(task);
+                addForm.reset();
+                clearMessage();
+                render();
+                taskInput.focus();
+            } catch (error) {
+                showError(`無法新增任務：${error.message}`);
+            } finally {
+                setFormBusy(false);
+            }
+        }
+
+        async function updateDone(task, check) {
+            const done = check.checked;
+            check.disabled = true;
+
+            try {
+                const updatedTask = await request(`/tasks/${task.id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        text: task.text,
+                        done
+                    })
+                });
+                replaceTask(updatedTask);
+                clearMessage();
+                render();
+            } catch (error) {
+                check.checked = task.done;
+                showError(`無法更新任務：${error.message}`);
+            } finally {
+                check.disabled = false;
+            }
+        }
+
+        async function editTask(task) {
+            const nextText = window.prompt('修改任務內容', task.text);
+            if (nextText === null) return;
+
+            const text = nextText.trim();
+            if (!text) {
+                showError('任務內容不能是空白。');
+                return;
+            }
+
+            if (text.length > 200) {
+                showError('任務內容最多 200 個字。');
+                return;
+            }
+
+            try {
+                const updatedTask = await request(`/tasks/${task.id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        text,
+                        done: task.done
+                    })
+                });
+                replaceTask(updatedTask);
+                clearMessage();
+                render();
+            } catch (error) {
+                showError(`無法編輯任務：${error.message}`);
+            }
+        }
+
+        async function deleteTask(task, deleteButton) {
+            deleteButton.disabled = true;
+
+            try {
+                await request(`/tasks/${task.id}`, { method: 'DELETE' });
+                tasks = tasks.filter(item => item.id !== task.id);
+                clearMessage();
+                render();
+                taskInput.focus();
+            } catch (error) {
+                deleteButton.disabled = false;
+                showError(`無法刪除任務：${error.message}`);
+            }
+        }
+
+        addForm.addEventListener('submit', addTask);
+        loadTasks();
+    </script>
+</body>
+
+</html>

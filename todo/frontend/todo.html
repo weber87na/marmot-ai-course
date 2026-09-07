@@ -1,0 +1,213 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>我的一天 | 待辦事項</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 24px;
+            background: #eef2eb;
+            color: #253c35;
+            font: 16px/1.6 system-ui;
+        }
+
+        main {
+            max-width: 640px;
+            margin: 8vh auto;
+            padding: 28px;
+            background: #fffef9;
+            border-radius: 24px;
+            box-shadow: 0 20px 80px #253c3512;
+        }
+
+        h1 {
+            font-size: 48px;
+            letter-spacing: -2px;
+            margin: 0;
+        }
+
+        p {
+            color: #65766c;
+        }
+
+        form,
+        li {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        input,
+        button {
+            font: inherit;
+            padding: 12px;
+            border: 1px solid #ced8cf;
+            border-radius: 10px;
+        }
+
+        #task {
+            flex: 1;
+            min-width: 0;
+        }
+
+        button {
+            background: #315c49;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #203f32;
+        }
+
+        ul {
+            padding: 0;
+            margin: 28px 0;
+        }
+
+        li {
+            padding: 16px 0;
+            border-bottom: 1px solid #e3e8df;
+        }
+
+        label {
+            flex: 1;
+            overflow-wrap: anywhere;
+        }
+
+        :checked+span {
+            text-decoration: line-through;
+            opacity: .5;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>我的一天。</h1>
+        <p>專注一點，進步一點。</p>
+
+        <form action=""
+            id="add">
+            <input type="text"
+                id="task"
+                placeholder="今天要做什麼？"
+                aria-label="新增待辦事項"
+                maxlength="200"
+                required="required">
+
+            <button>新增任務</button>
+        </form>
+
+        <ul id="list"></ul>
+
+        <p id="status"
+            role="status">新的一天，從新增一項任務開始吧。</p>
+    </main>
+
+    <script>
+        const el = id => document.getElementById(id);
+        let tasks = [];
+
+        try {
+            tasks = JSON.parse(localStorage.getItem('my-day-tasks')) || [];
+        } catch { }
+
+        if (!Array.isArray(tasks)) tasks = [];
+
+        tasks = tasks.filter(
+            t => t && typeof t.text === 'string'
+        );
+
+        function save() {
+            render();
+
+            try {
+                localStorage.setItem(
+                    'my-day-tasks',
+                    JSON.stringify(tasks)
+                );
+            } catch {
+                el('status').textContent =
+                    '無法儲存資料，請保持此分頁開啟。';
+            }
+        }
+
+        function render() {
+            el('list').replaceChildren();
+
+            el('status').textContent = tasks.length
+                ? `還有 ${tasks.filter(t => !t.done).length} 項任務未完成`
+                : '新的一天，從新增一項任務開始吧。';
+
+            tasks.forEach((t, i) => {
+                const make = tag => document.createElement(tag);
+
+                const row = make('li');
+                const label = make('label');
+                const check = make('input');
+                const text = make('span');
+                const del = make('button');
+
+                check.type = 'checkbox';
+                check.checked = !!t.done;
+
+                text.textContent = t.text;
+
+                del.textContent = '刪除';
+
+                check.onchange = () => {
+                    t.done = check.checked;
+                    save();
+
+                    el('list')
+                        .children[i]
+                        .querySelector('input')
+                        .focus();
+                };
+
+                del.onclick = () => {
+                    tasks.splice(i, 1);
+                    save();
+                    el('task').focus();
+                };
+
+                del.setAttribute(
+                    'aria-label',
+                    '刪除任務：' + t.text
+                );
+
+                label.append(check, text);
+                row.append(label, del);
+                el('list').append(row);
+            });
+        }
+
+        el('add').onsubmit = e => {
+            e.preventDefault();
+
+            const text = el('task').value.trim();
+
+            if (!text) return;
+
+            tasks.push({
+                text,
+                done: false
+            });
+
+            el('add').reset();
+            save();
+            el('task').focus();
+        };
+
+        render();
+    </script>
+</body>
+
+</html>
+```

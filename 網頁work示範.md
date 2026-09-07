@@ -62,3 +62,83 @@ https://www.youtube.com/watch?v=9HcW0pRnjs4 詳細列出這則影片內容在講
 
 [01:16] 所以，當作不知道就 OK 了，當假的看 OK 了。
 ```
+
+如果你是開發人員或想要替程式加點功能, 也可以直接用 work 來做, 搭配 github 的 github action 可以無腦建立線上編譯環境
+
+像我自己是 vim 邪教的信徒, 今天最後面介紹後端程式會使用 sqlite, 我們會用到 sqlitebrowser 這個工具, 但他沒有支援 vim 這種功能, 所以我請他增加
+
+尤其點數稍不完的時候, 用手機丟下去做, 人跑去睡覺最適合
+
+以下是幾輪主要的 prompt
+
+```markdown
+## 建立 vim 支援
+https://github.com/sqlitebrowser/sqlitebrowser將這個功能加入 vim 模式讓我可以在 windows 上使用
+
+
+## 增加佈景
+你能增加 UI 字體設定, 並且增加 draculatheme 這個佈景嗎, 參考自 https://draculatheme.com/
+
+## 功能調整
+我還需要把 ctrl + w 關閉分頁這個功能移除,  否則我的 vim 刪除文字操作時很不方便
+
+## 大功能調整實作
+預設的佈景直接使用 dracula
+
+現在輸出 log 字體還有問題, 你檢查 UI/ Editor 各種有關字體設定的地方, 我希望預設直接使用 Consolas 當作字體
+
+此外你目前 vim 基本功能實作也不完整, 像是使用 e 這個按鍵進行移動, 是有 bug 正常在這句如果第一行移動按兩次 e 他會移動到星號的位置, 你的實作只有移動到 t 這個位置
+SELECT * 
+FROM test;
+
+此外我現在也無法使用 vimrc/init.lua 這種功能, 我希望你至少幫我可以加入我習慣的這些, 參考我 nvim 設定 init.lua
+-- Insert mode mappings.
+keymap("i", "<leader><leader>", "<Esc>", noremap_silent)
+keymap("i", "z;", "<Esc>$a;", noremap_silent)
+keymap("i", "zh", "<Esc>^i", noremap_silent)
+keymap("i", "zl", "<Esc>$a", noremap_silent)
+keymap("i", "z,", "<Esc>$a,", noremap_silent)
+
+-- Normal mode mappings.
+keymap("n", "<leader><leader>", "<Esc>", noremap_silent)
+keymap("n", "<leader><space>", "<leader><leader><leader>bdw", noremap_silent)
+keymap("n", "<leader>rv", lsp_rename, silent)
+keymap("n", "<leader>qq", grep_prompt, silent)
+keymap("n", "<leader>fp", copy_absolute_path, silent)
+keymap("n", "<leader>fn", copy_relative_path, silent)
+keymap("n", "<leader>tp", "<Cmd>botright split | terminal<CR>", noremap_silent)
+keymap("n", "<leader>xm", ":", { noremap = true })
+keymap("n", "<leader>ci", "gcc", { remap = true, silent = true })
+keymap("n", "<leader>xs", "<Cmd>write<CR>", noremap_silent)
+keymap("n", "<leader>ss", "/", { noremap = true })
+keymap("n", "<leader>xf", ":edit ", { noremap = true })
+keymap("n", "<leader>xk", "<Cmd>bdelete<CR>", noremap_silent)
+keymap("n", "<leader>rr", open_recent_file, silent)
+keymap("n", "<leader>kk", open_buffer, silent)
+keymap("n", "<leader>ii", lsp_symbols, silent)
+keymap("n", "<leader>x1", "<Cmd>only<CR>", noremap_silent)
+keymap("n", "<leader>x3", "<Cmd>vsplit<CR>", noremap_silent)
+keymap("n", "<leader>x2", "<Cmd>split<CR>", noremap_silent)
+keymap("n", "<leader>x4", "<Cmd>vsplit | split | wincmd l | split | wincmd h<CR>", noremap_silent)
+keymap("n", "<leader>x0", "<Cmd>close<CR>", noremap_silent)
+keymap("n", "<leader>xz", "<Cmd>botright split | terminal<CR>", noremap_silent)
+keymap("n", "<leader>ff", "<Cmd>only<CR>", noremap_silent)
+keymap("n", "<leader>wh", "<C-w>h", noremap_silent)
+keymap("n", "<leader>wj", "<C-w>j", noremap_silent)
+keymap("n", "<leader>wk", "<C-w>k", noremap_silent)
+keymap("n", "<leader>wl", "<C-w>l", noremap_silent)
+keymap("n", "<leader>wq", "<Cmd>wq<CR>", noremap_silent)
+keymap("n", "zh", "^", noremap_silent)
+keymap("n", "zl", "$", noremap_silent)
+keymap("n", "z;", "$a;<Esc>", noremap_silent)
+keymap("n", "z,", "$a,<Esc>", noremap_silent)
+
+-- Visual mode mappings.
+keymap("x", "<leader><leader>", "<Esc>", noremap_silent)
+keymap("x", ";h", [[:s?^\(\s*\)+ '\([^']\+\)',*\s*$?\1\2?g<CR>]], noremap_silent)
+keymap("x", ";q", [[:s?^\(\s*\)\(.*\)\s*$?\1+ '\2'?<CR>]], noremap_silent)
+keymap("x", "<leader>ci", "gc", { remap = true, silent = true })
+keymap("x", "<leader>aa", [["+y]], noremap_silent)
+keymap("x", "<leader>qq", grep_prompt, silent)
+keymap("x", "<leader>ss", "/", { noremap = true })
+```

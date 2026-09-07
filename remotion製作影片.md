@@ -123,3 +123,10 @@ Hashtags：
    - Shorts
 4. 標題需要具有好奇感，例如強調「20 種風格」、「AI 生成」、「哪隻最可愛」、「最後一隻超意外」等元素。
 ```
+
+最後想要介紹[自動上傳啦啦隊影片的功能](https://www.youtube.com/watch?v=KQIbrDXTAWI&feature=youtu.be), 他需要使用上傳到 youtube 的 cli 工具, 可以自己找喜歡的, 我是自己用 vibe coding 弄一個 python 的, 如果搭配排程功能應該是可以做到睡覺時後發片, 醒來後審核就完事了
+
+```
+建立 20 種不同造型的詳細提示詞, 繪製人物特寫的台灣高顏值寫實攝影啦啦隊美女 9:16, 身材姣好, 皮膚白皙, 每一張造型都不同, 並且保留這些提示詞, 使用 [@Remotion](plugin://remotion@openai-curated-remote) 建立 90 秒的 youtube short 影片, 先顯示提示詞, 接著顯示提示詞繪製出的美女圖片, 一張接著一張直到 20 種風格全數顯示完畢, 順序為 提示詞 -> 美女圖 -> 提示詞 -> 美女圖 以此類推, 搭配適合啦啦隊的音樂, 最後產生 youtube short 的 title 及 hashtag
+完成後使用 [$youtube-publish](D:\youtube-publish\SKILL.md) 推上我的頻道
+```
