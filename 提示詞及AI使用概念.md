@@ -228,7 +228,7 @@ hello world
 
 | 模型                |    輕度   |    中度    |    高   |      極高      |   最大  |    超高    |
 | ----------------- | :-----: | :------: | :----: | :----------: | :---: | :------: |
-| **GPT-5.6 Luna**  | ✅ Light | ✅ Medium | ✅ High | ✅ Extra High | ✅ Max |     —    |
-| **GPT-5.6 Terra** | ✅ Light | ✅ Medium | ✅ High | ✅ Extra High | ✅ Max | ✅ Ultra* |
-| **GPT-5.6 Sol**   | ✅ Light | ✅ Medium | ✅ High | ✅ Extra High | ✅ Max |  ✅ Ultra |
-| **GPT-6 Astra**   | ✅ Light | ✅ Medium | ✅ High | ✅ Extra High | ✅ Max | ✅ Ultra* |
+| **GPT-5.6 Luna**  |  Light |  Medium |  High |  Extra High |  Max |     —    |
+| **GPT-5.6 Terra** |  Light |  Medium |  High |  Extra High |  Max |  Ultra* |
+| **GPT-5.6 Sol**   |  Light |  Medium |  High |  Extra High |  Max |   Ultra |
+| **GPT-6 Astra**   |  Light |  Medium |  High |  Extra High |  Max |  Ultra* |
