@@ -1,12 +1,12 @@
-需要先安裝 [ChatGPT for Excel](https://chatgpt.com/zh-Hant/apps/spreadsheets/) 他可以直接掛在 excel 裡面操作
+需要先安裝 [ChatGPT for Excel](https://chatgpt.com/zh-Hant/apps/spreadsheets/), 它可以直接掛載在 Excel 裡操作.
 
-接著下載 [鈴木一朗資料集](https://www.kaggle.com/datasets/jarredpriester/ichiro-suzuki-mlb-career-stats)
+接著下載 [鈴木一朗資料集](https://www.kaggle.com/datasets/jarredpriester/ichiro-suzuki-mlb-career-stats).
 
-將這個 csv 另存為 excel 否則 ChatGPT 操作沒辦法正常保存
+將這個 CSV 另存為 Excel 檔案, 否則 ChatGPT 可能無法正常儲存.
 
-此外他這個使用技能呼叫的符號也不同, 他使用 `@` 來指定 sheet, 使用 slash `/` 來呼叫技能或是 plugin 還有其他命令
+此外, 它使用的技能呼叫符號也不同: 使用 `@` 來指定工作表, 使用 slash `/` 來呼叫技能, plugin 及其他命令.
 
-不過 `ChatGPT for Excel` 目前還是 beta 所以有些功能不太穩定, 像是寄信我就沒辦法寄出去
+不過 `ChatGPT for Excel` 目前仍是 beta 版, 所以有些功能不太穩定, 例如寄信功能我就無法寄出.
 
 ```csv
 Year,Age,Tm,Lg,G,PA,AB,R,H,2B,3B,HR,RBI,SB,CS,BB,SO,BA,OBP,SLG,OPS,OPS+,TB,GDP,HBP,SH,SF,IBB
@@ -33,102 +33,104 @@ Year,Age,Tm,Lg,G,PA,AB,R,H,2B,3B,HR,RBI,SB,CS,BB,SO,BA,OBP,SLG,OPS,OPS+,TB,GDP,H
 2019,45,SEA,AL,2,6,5,0,0,0,0,0,0,0,0,1,1,.000,.167,.000,.167,-47,0,0,0,0,0,0
 ```
 
-以下是他欄位的說明描述
+以下是各欄位的說明:
 
 ```text
-打擊統計欄位說明Year：該球季的年份
-Age：該球季 6 月 30 日時的年齡
-Tm：效力的球隊（Team）
-Lg：所屬聯盟（League）
-G：出賽場次（Games Played）
-PA：打席數（Plate Appearances）
-AB：打數（At Bats）
-R：得分（Runs Scored）
-H：安打數（Hits）
-2B：二壘安打數（Doubles）
-3B：三壘安打數（Triples）
-HR：全壘打數（Home Runs）
-RBI：打點（Runs Batted In）
-SB：盜壘成功數（Stolen Bases）
-CS：盜壘失敗／被抓到盜壘的次數（Caught Stealing）
-BB：四壞球保送（Walks）
-SO：三振次數（Strikeouts）
-BA：打擊率（Batting Average）
-OBP：上壘率（On-Base Percentage）
-SLG：長打率（Slugging Percentage）
-OPS：上壘率＋長打率（OBP + SLG）
-OPS+：經球場因素等調整後的 OPS 指標
-TB：壘打數（Total Bases）
-GDP：擊出滾地球形成雙殺的次數（Grounded Into Double Plays）
-HBP：觸身球次數（Hit By Pitch）
-SH：犧牲觸擊／犧牲安打（Sacrifice Hits）
-SF：高飛犧牲打（Sacrifice Flies）
-IBB：故意四壞球保送（Intentional Base on Balls
+打擊統計欄位說明:
+Year: 該球季的年份
+Age: 該球季 6 月 30 日時的年齡
+Tm: 效力的球隊 (Team)
+Lg: 所屬聯盟 (League)
+G: 出賽場次 (Games Played)
+PA: 打席數 (Plate Appearances)
+AB: 打數 (At Bats)
+R: 得分 (Runs Scored)
+H: 安打數 (Hits)
+2B: 二壘安打數 (Doubles)
+3B: 三壘安打數 (Triples)
+HR: 全壘打數 (Home Runs)
+RBI: 打點 (Runs Batted In)
+SB: 盜壘成功數 (Stolen Bases)
+CS: 盜壘失敗/被抓到盜壘的次數 (Caught Stealing)
+BB: 四壞球保送 (Walks)
+SO: 三振次數 (Strikeouts)
+BA: 打擊率 (Batting Average)
+OBP: 上壘率 (On-Base Percentage)
+SLG: 長打率 (Slugging Percentage)
+OPS: 上壘率+長打率 (OBP + SLG)
+OPS+: 經球場因素等調整後的 OPS 指標
+TB: 壘打數 (Total Bases)
+GDP: 擊出滾地球形成雙殺的次數 (Grounded Into Double Plays)
+HBP: 觸身球次數 (Hit By Pitch)
+SH: 犧牲觸擊/犧牲安打 (Sacrifice Hits)
+SF: 高飛犧牲打 (Sacrifice Flies)
+IBB: 故意四壞球保送 (Intentional Base on Balls)
 ```
 
-使用以下 prompt 修改 header
+使用以下 prompt 修改 header:
 ```
-將 header 改為中文, 使用以下內容
+將 header 改為中文, 使用以下內容:
 
-打擊統計欄位說明Year：該球季的年份
-Age：該球季 6 月 30 日時的年齡
-Tm：效力的球隊（Team）
-Lg：所屬聯盟（League）
-G：出賽場次（Games Played）
-PA：打席數（Plate Appearances）
-AB：打數（At Bats）
-R：得分（Runs Scored）
-H：安打數（Hits）
-2B：二壘安打數（Doubles）
-3B：三壘安打數（Triples）
-HR：全壘打數（Home Runs）
-RBI：打點（Runs Batted In）
-SB：盜壘成功數（Stolen Bases）
-CS：盜壘失敗／被抓到盜壘的次數（Caught Stealing）
-BB：四壞球保送（Walks）
-SO：三振次數（Strikeouts）
-BA：打擊率（Batting Average）
-OBP：上壘率（On-Base Percentage）
-SLG：長打率（Slugging Percentage）
-OPS：上壘率＋長打率（OBP + SLG）
-OPS+：經球場因素等調整後的 OPS 指標
-TB：壘打數（Total Bases）
-GDP：擊出滾地球形成雙殺的次數（Grounded Into Double Plays）
-HBP：觸身球次數（Hit By Pitch）
-SH：犧牲觸擊／犧牲安打（Sacrifice Hits）
-SF：高飛犧牲打（Sacrifice Flies）
-IBB：故意四壞球保送（Intentional Base on Balls）
+打擊統計欄位說明:
+Year: 該球季的年份
+Age: 該球季 6 月 30 日時的年齡
+Tm: 效力的球隊 (Team)
+Lg: 所屬聯盟 (League)
+G: 出賽場次 (Games Played)
+PA: 打席數 (Plate Appearances)
+AB: 打數 (At Bats)
+R: 得分 (Runs Scored)
+H: 安打數 (Hits)
+2B: 二壘安打數 (Doubles)
+3B: 三壘安打數 (Triples)
+HR: 全壘打數 (Home Runs)
+RBI: 打點 (Runs Batted In)
+SB: 盜壘成功數 (Stolen Bases)
+CS: 盜壘失敗/被抓到盜壘的次數 (Caught Stealing)
+BB: 四壞球保送 (Walks)
+SO: 三振次數 (Strikeouts)
+BA: 打擊率 (Batting Average)
+OBP: 上壘率 (On-Base Percentage)
+SLG: 長打率 (Slugging Percentage)
+OPS: 上壘率+長打率 (OBP + SLG)
+OPS+: 經球場因素等調整後的 OPS 指標
+TB: 壘打數 (Total Bases)
+GDP: 擊出滾地球形成雙殺的次數 (Grounded Into Double Plays)
+HBP: 觸身球次數 (Hit By Pitch)
+SH: 犧牲觸擊/犧牲安打 (Sacrifice Hits)
+SF: 高飛犧牲打 (Sacrifice Flies)
+IBB: 故意四壞球保送 (Intentional Base on Balls)
 ```
 
-繪製生涯三隊的打擊率 prompt
+繪製生涯三隊的打擊率 prompt:
 
 ```
-將他的生涯打擊率依照待過的球隊繪製趨勢圖新建一個 sheet
-現在的打擊率折線圖太不明顯, 調整讓我清楚看到折線
-只保留單除三隊的折線即可, 打擊率應該是在 0 ~ 1 之間
-這樣的摺線無法正常觀看, 調整他
+將他的生涯打擊率依照曾效力的球隊繪製趨勢圖, 新建一個 sheet.
+現在的打擊率折線圖太不明顯, 請調整讓我清楚看到折線.
+只保留三隊的折線即可, 打擊率應該在 0 ~ 1 之間.
+這樣的折線無法正常觀看, 請調整它.
 ```
 
 bar chart 繪製
 ```
-建立新的 sheet
+建立新的 sheet.
 繪製二壘安打 vs 三壘安打的 bar chart
 各年使用不同顏色堆疊
 
-bar chart 太不明顯, 修正他
+bar chart 太不明顯, 請修正它.
 ```
 
 標示數值為紅底 prompt
 ```
-@Ichiro 將全壘打, 盜壘成功, 安打數最高的標示為紅底
+@Ichiro 將全壘打, 盜壘成功, 安打數的最高值標示為紅底.
 ```
 
 設定聯盟篩選功能 prompt
 ```
-@Ichiro 在聯盟建立美聯/國聯 讓我可以篩選, 其他欄位不需要, 只需要國聯/美聯 即可
+@Ichiro 在聯盟欄位建立美聯/國聯篩選功能, 讓我可以篩選; 其他欄位不需要, 只需要國聯/美聯即可.
 ```
 
-由於 2012 一朗被交易到洋基,所以有 TOT 這格, 點選 TOT 這格, 輸入以下提示詞
+由於 2012 年一朗被交易到洋基, 所以有 TOT 這列. 點選 TOT 這格, 輸入以下提示詞:
 ```
 將這格標示為黃底
 ```
