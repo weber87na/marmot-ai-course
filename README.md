@@ -57,7 +57,7 @@
 
 | 主題 | 狀態 | 教學文件 |
 | --- | --- | --- |
-| QR Code、ToDo List、擲筊與佛珠 | ✅ | [前端 Vibe Coding 範例](前端vibecoding範例.md) |
+| QR Code、ToDo List、擲筊與佛珠、照妖鏡 | ✅ | [前端 Vibe Coding 範例](前端vibecoding範例.md) |
 
 ### 5. 後端與 API
 
