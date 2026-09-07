@@ -1,0 +1,358 @@
+因為每個人的作業系統環境不同, 以下提供的安裝方法不見得適用於每個人.
+
+我的環境是 win11, win10 可能不見得適用, 若遇到問題, 請先嘗試自行排除. 
+
+因為我沒有 macOS 所以 mac 的朋友請自求多福 LOOOOOOL
+
+[部分安裝講解影片](https://www.youtube.com/playlist?list=PLHJBUmocOi1Q)
+
+## 必裝清單
+
+* Codex
+* Python
+* Node.js
+
+## Codex (必裝)
+
+[Codex](https://openai.com/zh-Hant/codex/) 是 OpenAI 的 Coding Agent, 其他還有 Google Antigravity, Anthropic Claude Code.
+
+今天主要是講解 Codex, 因為目前看來它 CP 值最高, ChatGPT Plus Subscription 一個月 690 元.
+
+## Node.js (必裝)
+
+[Node.js](https://nodejs.org/zh-tw) 是讓 JavaScript 可以在瀏覽器之外執行的執行環境. 原本的 JavaScript 只能跑在瀏覽器 (Chrome, Firefox, Edge)...
+
+JavaScript 是一種程式語言, 常用於前端網頁.
+
+TypeScript 則是 JavaScript 的擴充語言 (超集合), 可以轉譯成 JavaScript 程式碼.
+
+管理 Node.js 版本, 建議使用 [nvm](https://github.com/nvm-sh/nvm) 或 [fnm](https://github.com/schniz/fnm); 它們可以快速切換不同版本的 Node.js.
+
+用 nvm 安裝時要注意平台, 如果是 Windows, 要使用 [nvm-windows](https://github.com/coreybutler/nvm-windows).
+如果使用 Linux 或 macOS, 則是使用原生的 [nvm](https://github.com/nvm-sh/nvm).
+
+課程將示範 [fnm](https://github.com/schniz/fnm), 因為使用 Rust 開發, 比較潮 XD.
+```
+winget install Schniz.fnm
+```
+
+fnm 安裝穩定版本的 Node.js:
+```
+fnm install --lts
+
+```
+
+打開記事本或 Notepad++, 將以下設定加入 PowerShell 設定檔, 才可以一勞永逸:
+```
+# C:\Users\你的帳號\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+# C:\Users\你的帳號\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+notepad $PROFILE
+
+# 接著在檔案內設定這條即可
+fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+```
+
+列出目前有哪些 Node.js 版本:
+```
+fnm list
+# 輸出
+# * v24.19.0 default, lts-latest
+# * system
+```
+
+切換至 Node.js 24:
+```
+fnm use 24
+# 輸出
+# Using Node v24.19.0
+```
+
+最後確認 Node.js 是否安裝成功:
+```
+node -v
+# 輸出
+# v24.19.0
+```
+
+## Python (必裝)
+
+Python 是一個很噁心的程式語言, 它比 Java 還早出現, 近年因為 AI 而更加熱門, 寫起來就是噁心.
+
+Python 的環境與套件管理往往讓人感到頭痛, 比較好的方式是使用 [uv](https://github.com/astral-sh/uv) 來進行管理.
+
+```
+# On Windows.
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+安裝好之後可以執行以下命令
+```
+uv -V
+# 輸出
+# uv 0.11.6 (65950801c 2026-04-09 x86_64-pc-windows-msvc)
+```
+
+## winget (可選, 應該是內建)
+
+winget 是 Windows 套件管理器, Windows 11 通常已經內建, 可以很方便地拿來安裝一些 Windows 上的工具.
+
+如果沒有 [winget](https://github.com/microsoft/winget-cli), 在 Windows 平台可以使用 [Chocolatey](https://chocolatey.org/).
+
+不同平台常見的套件管理器如下:
+```
+Ubuntu  → apt
+macOS   → brew
+Windows → winget
+```
+
+也可以到這個 [winstall](https://winstall.app/) 搜尋想要安裝的程式, 直接產生安裝指令, 省下不少時間.
+
+## PowerShell 7 (可選)
+
+Windows 上常見的 PowerShell 主要有兩個世代. 目前 Windows 11 內建的還是舊版 5.1, 執行指令為 `powershell`.
+
+新版為 PowerShell 7 (早期稱為 PowerShell Core), 目前版本應該是 7.6, 執行指令為 `pwsh`.
+
+建議大家使用 PowerShell 7, 這樣後續使用 `coreutils`, 以及讓 AI 呼叫一些工具時, 會更順.
+
+可以執行以下指令檢查版本:
+```
+$PSVersionTable
+```
+
+PowerShell 5.1
+```
+Name                           Value
+----                           -----
+PSVersion                      5.1.26100.9168
+PSEdition                      Desktop
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
+BuildVersion                   10.0.26100.9168
+CLRVersion                     4.0.30319.42000
+WSManStackVersion              3.0
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+```
+
+PowerShell 7
+```
+Name                           Value
+----                           -----
+PSVersion                      7.6.3
+PSEdition                      Core
+GitCommitId                    7.6.3
+OS                             Microsoft Windows 10.0.26200
+Platform                       Win32NT
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
+PSRemotingProtocolVersion      2.4
+SerializationVersion           1.1.0.1
+WSManStackVersion              3.0
+
+```
+
+PowerShell 7 下載及安裝
+
+[PowerShell 官網](https://github.com/powershell/powershell)
+
+[微軟說明頁面](https://learn.microsoft.com/zh-tw/powershell/scripting/install/install-powershell-on-windows?view=powershell-7.6)
+
+最簡單的安裝方法
+```
+winget install --id Microsoft.PowerShell --source winget
+```
+
+## Windows Terminal (可選, Windows 11 新版應該已經內建)
+
+Windows Terminal 就像是一個整合多種 Shell 的終端機介面, 常見的 Shell 有 CMD, PowerShell 5.1, PowerShell 7, Git Bash, Bash, Zsh, Fish...
+
+以前沒有 Windows Terminal 時, 通常會使用 [Cmder](https://cmder.app/), 但是設定很噁心人, 為了不要浪費生命請盡早遠離.
+
+## VS Code (想學 Vibe Coding 才安裝, 可選)
+
+Visual Studio Code (簡稱 [VS Code](https://code.visualstudio.com/)) 是一個程式碼編輯器, 可以視為輕量的 IDE (Integrated Development Environment).
+
+常用於撰寫 Python, JavaScript 等程式.
+
+因為名稱相近, VS Code 常常會跟微軟另外一個產品 Visual Studio 搞混. Visual Studio 則主要用於開發 ASP.NET Core, C#, C++ 等程式.
+
+
+今天還會有兩個擴充套件需要安裝:
+
+[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+
+[Codex – OpenAI’s coding agent](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt)
+
+## Git (想學 Vibe Coding 才安裝, 可選)
+
+[Git](https://git-scm.com/) 是一種版本控制工具, 學習曲線較高. 它可以用來管理檔案的版本, 告別用日期來命名檔案, `final`, `final final`, `final final final` 版本的問題.
+
+## GitHub (建議申請, 才有福利, 可選)
+
+[GitHub](https://github.com/) 是一個程式碼管理平台, 建議可以申請一下, 後續也可以把 Vibe Coding 的成果放到平台上.
+
+## rg 及 fd (可選)
+
+這兩個工具是 Codex CLI 常用來搜尋檔案與文字內容的工具: `rg` 偏向搜尋文字內容, `fd` 偏向搜尋檔案. 如果有安裝, 搜尋速度應該會提升; Windows 預設沒有這兩個工具.
+
+[rg](https://github.com/burntsushi/ripgrep)
+
+[fd](https://github.com/sharkdp/fd)
+
+```
+winget install BurntSushi.ripgrep.MSVC
+winget install sharkdp.fd
+```
+
+## Postman (可選)
+
+[Postman](https://www.postman.com/) 是用來測試後端 API 的工具. 因為它操作比較直覺, 不用背一堆指令, 所以用來測試後端 API 幾乎是標配.
+
+不想安裝的話也可以用 `curl` 代替, `curl` 也是用來測試或呼叫後端 API 的工具, 在 Windows 11 應該已經內建在系統裡.
+
+但是舊版 Windows 內建的 `curl` 是 PowerShell 裡面非標準的 `curl`, 所以要設定 Alias 才會正常.
+
+```
+notepad $PROFILE
+
+# 加入到設定檔內
+if (Test-Path Alias:curl) { Remove-Item Alias:curl }
+```
+
+## coreutils (可選)
+
+[coreutils](https://github.com/microsoft/coreutils) 是微軟使用 Rust 實作的一組基礎命令列工具, 為了在 AI 時代統一底層命令的行為, 讓使用方式更接近 Linux, macOS.
+
+安裝方法如下
+```
+winget install Microsoft.Coreutils
+```
+
+## Starship (IT 人員可以安裝下, 可選)
+
+[Starship](https://starship.rs/) 好用的美化 terminal 工具
+
+## Notepad++ (可選)
+[Notepad++](https://notepad-plus-plus.org/downloads/) 因為使用 AI 或進行 Vibe Coding 會有很多文字設定檔, 所以建議安裝這個, 遇到工程師也比較愛你.
+
+## Notepad Replacer (不用安裝, IT 人員可考慮, 可選)
+[Notepad Replacer](https://www.binaryfortress.com/NotepadReplacer/) 是可以將 `notepad` 指令重新導向至 Notepad++ 的小工具, 很實用.
+
+安裝並設定好後按下 `Win + R` 開啟執行視窗, 接著輸入 `notepad` 即可開啟 Notepad++.
+
+## FFmpeg (要玩影片才安裝, 可選)
+[FFmpeg](https://www.ffmpeg.org/) 是影音處理工具, 常用剪片軟體 CapCut, 威力導演內的核心應該都有用到它; 它可以剪片, 轉檔, 製作音訊淡入淡出等各種效果.
+```
+winget install Gyan.FFmpeg
+```
+
+## yt-dlp (可選)
+[yt-dlp](https://github.com/yt-dlp/yt-dlp) 是一個可以下載 YouTube 影片的工具.
+```
+winget install --id yt-dlp.yt-dlp -e --source winget
+```
+
+用法非常簡單, 只要像下面這樣加上網址即可:
+```
+yt-dlp https://www.youtube.com/watch?v=olaOoD8O1l4
+```
+
+如果遇到無法下載的問題, 可能是版本過舊. 例如以下問題, 需要指定 Node.js 環境; 這項功能要到新版才會出現:
+```
+🌹 yt-dlp https://www.youtube.com/watch?v=mSr7YHpZhJI
+[youtube] Extracting URL: https://www.youtube.com/watch?v=mSr7YHpZhJI
+[youtube] mSr7YHpZhJI: Downloading webpage
+WARNING: [youtube] No supported JavaScript runtime could be found. Only deno is enabled by default; to use another runtime add  --js-runtimes RUNTIME[:PATH]  to your command/config. YouTube extraction without a JS runtime has been deprecated, and some formats may be missing. See  https://github.com/yt-dlp/yt-dlp/wiki/EJS  for details on installing one
+[youtube] mSr7YHpZhJI: Downloading android vr player API JSON
+[info] mSr7YHpZhJI: Downloading 1 format(s): 18
+ERROR: unable to download video data: HTTP Error 403: Forbidden
+
+```
+
+可以用下面這個命令更新看看
+```
+yt-dlp --update-to nightly
+```
+
+這個指令可以看版本
+```
+🌹 yt-dlp --version
+2026.08.20.234504
+```
+
+最後執行就正常了
+```
+yt-dlp --js-runtimes node "https://www.youtube.com/watch?v=mSr7YHpZhJI"
+```
+
+## ChatGPT for Excel (經常使用 Excel 的工作者建議安裝, 可選)
+
+[ChatGPT for Excel](https://chatgpt.com/zh-Hant/apps/spreadsheets/) 它可以直接整合在 Excel 裡面操作.
+
+## Antigravity (Google 的 AI Agent, 比較可愛, 可選)
+
+[Antigravity](https://antigravity.google/)
+
+如果還在觀望, 不想花錢, 或是有些低階任務, 可以安裝使用看看, 反正學校有額度, 目前免費.
+
+## Blender (要玩 3D 建模才安裝, 可選)
+
+一套好用的開源 3D 建模軟體 [Blender](https://www.blender.org). 有想要做 Vibe Coding 3D 網頁的可以安裝看看.
+
+## sqlitebrowser (想玩 Vibe Coding 建議安裝, 可選)
+
+方便用來看 sqlite 檔案的工具
+
+[sqlitebrowser](https://sqlitebrowser.org/)
+
+如果跟我一樣有 vim 中毒可以用 [我的版本](https://github.com/weber87na/sqlitebrowser/releases/tag/vim-builtin-23)
+
+
+## Oracle VirtualBox (僅講解, 不用安裝)
+這是 [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads) 佛心出品的虛擬機器軟體, 常見的虛擬機還有 VMware Workstation Pro, Hyper-V (要 $$$ Windows Pro/Enterprise).
+
+因為有同學不是 IT 背景, 所以稍微講解一下. 虛擬機器 (VM) 可以想像成在電腦裡面模擬出一台電腦, 這台虛擬電腦的功能幾乎等同於真實電腦.
+
+常見用途是拿來測試軟體, 進行需要隔離環境的特殊測試, 模擬網路等...
+
+因為 AI 帶來的便利, 現在也可以直接用 AI 來幫你安裝虛擬機器, 會透過 `VBoxManage.exe` 這個 CLI 命令列工具.
+
+預設安裝在這個路徑: `C:\Program Files\Oracle\VirtualBox`
+以下為 Prompt:
+
+```
+幫我用 VirtualBox 安裝 Windows 11, ISO 檔案為 `Win11_25H2_Chinese_Traditional_x64_v2.iso`
+我已經有管理工具 VBoxManage 放在 C:\Program Files\Oracle\VirtualBox 路徑底下
+資源分配的話要跑得順就好
+VM 相關檔案位置都放在 D:\win11 這個資料夾底下
+```
+
+## 福利
+可以先到這裡看 [操作說明](https://go.nkust.edu.tw/info.php).
+
+首先要拿學校信箱. 每位學生會有兩個信箱, 常用的是 Google 信箱, 另一個是 Office 365 的信箱, 所以理論上可能可以分別使用相關學生優惠 XD.
+
+如果是學生的話, Google 去年有送 Google AI Pro 版本, 今年則是送 Plus 版本.
+
+可以到這個 [Google 官方連結](https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/) 進行申請.
+
+其他學生福利則可以看 [GitHub Copilot Student Pack](https://education.github.com/pack).
+
+這裡面涵蓋網域, Azure, JetBrains 以及很多開發工具與服務.
+
+不過這個認證流程有點折磨人 XD, 所以可以看 [我之前的文章](https://blog.lasai.com.tw/posts/%E7%94%B3%E8%AB%8B-GitHub-Copilot-Student-Pack/) 申請看看.
+
+如果在家申請不過的話, 請使用學校網路, 反正各種不同方法測試看看.
+
+如果你是程式相關工作者, DBA, Vim 狂熱者, 不想這麼麻煩, 應該也可以直接用學校信箱申請 [JetBrains 大禮包](https://www.jetbrains.com/academy/student-pack/).
+
+這裡面有 Rider, PyCharm, DataGrip, IntelliJ IDEA... 重點是有 IdeaVim XD.
+
+學校也有提供 MATLAB 教育版, 有需要也可以玩看看.
+
+## 程式課程推薦
+如果你真的對程式語言有興趣, 想要多了解一些, Python 可以參考 [Wilson-ren](https://wilson-ren.netlify.app/), 他在 Udemy 上販售的相關課程大概只要 `270 ~ 370`.
+
+想學習前端/CSS, 可以參考我的老師 [Amos 大神](https://www.youtube.com/watch?v=ZavL9y4Adrk&list=PLqivELodHt3iL9PgGHg0_EF86FwdiqCre) 的前端課程. 雖然有點舊了, 不過底層概念就是這樣.
+
+如果對 AI 或其他程式內容有興趣, 也可以參考我無緣的老闆 [WILL 保哥的課程](https://learn.duotify.com/), 也可以上網搜尋他的粉專或是加入社團, 裡面有很多 AI 相關資訊.
+建議具備一些 IT 背景, 不然看起來可能都是火星文 XD.
