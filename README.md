@@ -43,6 +43,7 @@
 | --- | --- | --- |
 | AI 圖片生成：文字生圖與圖片轉換 | ✅ | [AI 多媒體實戰](AI多媒實戰.md) |
 | 影片字幕 | ✅ | [產生影片字幕](產生影片字幕.md) |
+| 網頁製作與功能調整 | ✅ | [網頁 Work 示範](網頁work示範.md) |
 | 國內旅遊規劃 | ✅ | [旅遊規劃](旅遊規劃.md) |
 | Remotion 製作影片 | ✅ | [Remotion 製作影片](remotion製作影片.md) |
 | Blender 簡單建模 | ✅ | [Blender 建模](blender建模.md) |
@@ -51,7 +52,6 @@
 
 | 主題 | 狀態 | 教學文件 |
 | --- | --- | --- |
-| 網頁製作與功能調整 | ✅ | [網頁 Work 示範](網頁work示範.md) |
 | QR Code、ToDo List、擲筊與佛珠 | ✅ | [Vibe Coding 範例](vibecoding範例.md) |
 | Chrome Extension：照妖鏡 | ✅ | [照妖鏡使用說明](照妖鏡.md) |
 
