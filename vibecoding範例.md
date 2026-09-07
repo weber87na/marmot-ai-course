@@ -45,6 +45,11 @@ luna 推理強度最強
 
 ## 擲筊遊戲
 
+[範例參考](https://jiaobei-challenge.weber87na.chatgpt.site)
+
+[範例影片](https://www.youtube.com/watch?v=zhe2RLvr9L0)
+
+
 擲筊遊戲, `sol` 推理強度最強
 
 ```text
@@ -52,6 +57,10 @@ luna 推理強度最強
 ```
 
 ## 佛珠
+
+[範例參考](https://mala-opal.vercel.app)
+
+[範例影片](https://www.youtube.com/watch?v=ebjHRfiD3Qw)
 
 第一輪對話
 
