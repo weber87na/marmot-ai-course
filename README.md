@@ -49,7 +49,7 @@
 | AI 圖片生成：文字生圖與圖片轉換 | ✅ | [AI 多媒體實戰](AI多媒實戰.md) |
 | 副歌擷取聽海 | ✅ | [副歌擷取聽海](聽海.md) |
 | 影片字幕 | ✅ | [產生影片字幕](產生影片字幕.md) |
-| 網頁製作與功能調整 | ✅ | [ChatGPT Work and Gemini Spark 示範](work示範.md) |
+| 網頁製作與功能調整 | ✅ | [ChatGPT Work and Gemini Spark 示範](網頁work示範.md) |
 | 國內旅遊規劃 | ✅ | [旅遊規劃](旅遊規劃.md) |
 | Remotion 製作影片 | ✅ | [Remotion 製作影片](remotion製作影片.md) |
 | Blender 簡單建模 | ✅ | [Blender 建模](blender建模.md) |
