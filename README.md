@@ -39,6 +39,7 @@
 | 履歷與週報範例 | ✅ | [週報製作紀錄](週報.md) |
 | Skill 範例與風格提煉 | ✅ | [Skill 範例](skill範例.md) |
 | 錯字用詞修正 | ✅ | [錯字用詞修正](錯字用詞修正.md) |
+| 網站截圖上傳 Google Drive | ✅ | [論文 PDF 文件翻譯](網站截圖_上傳至_google_drive.md) |
 | Computer Use 操作 LINE | ✅ | [Computer Use 操作 LINE](computer_use_操作_line.md) |
 | 論文 PDF 文件翻譯 | ✅ | [論文 PDF 文件翻譯](論文_pdf_文件翻譯.md) |
 
