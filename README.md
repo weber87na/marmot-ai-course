@@ -63,8 +63,8 @@
 
 | 主題 | 狀態 | 教學文件 |
 | --- | --- | --- |
-| Vibe Coding 後端與 HTTP Request | 🟡 | [後端 Todo 與 API 規劃](後端todo.md) |
-| 將 Todo List 做成 Skill | ⬜ | 待補充 |
+| Vibe Coding 後端與 HTTP Request | ✅ | [後端 Todo 與 API 規劃](後端todo.md) |
+| 將 Todo List 做成 Skill | ✅ | 待補充 |
 
 ---
 
