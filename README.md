@@ -38,6 +38,7 @@
 | Word 資料填寫 | ✅ | [Word 資料填寫](word資料填寫.md) |
 | 履歷與週報範例 | ✅ | [週報製作紀錄](週報.md) |
 | Skill 範例與風格提煉 | ✅ | [Skill 範例](skill範例.md) |
+| 錯字用詞修正 | ✅ | [錯字用詞修正](錯字用詞修正.md) |
 | Computer Use 操作 LINE | ✅ | [Computer Use 操作 LINE](computer_use_操作_line.md) |
 | 論文 PDF 文件翻譯 | ✅ | [論文 PDF 文件翻譯](論文_pdf_文件翻譯.md) |
 
