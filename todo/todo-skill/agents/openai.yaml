@@ -1,0 +1,8 @@
+interface:
+  display_name: "Todo API CLI"
+  short_description: "用可重複使用的 Python CLI 管理本機 Todo 待辦事項"
+  brand_color: "#2563EB"
+  default_prompt: "Use $todo-skill to manage tasks in the local Todo API."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,3 +1,5 @@
+## todo 網站建立
+
 最後介紹怎麼把前端的資料保存到後端, 這裡為了方便所以使用 sqlite 這種檔案式資料庫, 實際環境會使用如 oracle, postgres, mssql, mariadb, mysql 這些重量級的服務
 
 這裡需要使用 [sqlitebrowser](https://sqlitebrowser.org/) 這個免費的工具來建立資料庫
@@ -317,3 +319,18 @@ Health：http://127.0.0.1:8000/health
 - 不加入時間、分類、搜尋、登入、多使用者、分頁或軟刪除。
 - 不刪除或重設既有 `backend/data/todo.db`，避免破壞現有任務資料。
 ````
+
+
+## 把公司或是別人的網站變成 skill
+
+這個 case 大概要跑 20 分鐘左右
+
+礙於外部網站可能太過複雜可能會跑很久, 故使用剛剛我們做的 todo, 如果公司有些機械性的重複流程, ex:請假, 打卡, 填表
+
+可以用這樣的方式包裝成 skill 然後用自然語言呼叫, 因為這些功能骨子裡就只是打 api 或是執行些簡單但煩瑣的任務
+
+這裡只開 `luna` 推理強度 `最大`
+
+```
+請你探索 [http://localhost:5500/todo.html](http://localhost:5500/todo.html) 這個網站的功能, 禁止投機取巧觀看 [frontend\\\_with\\\_api](frontend_with_api/) [frontend](frontend/) [backend](backend/) 內的程式碼, 單純使用自己探索的能力, 優先查看該網站的程式碼進行理解, 分析出這個網址有哪些功能, 它們呼叫了什麼 api, 最後將這個網站的能力做成能夠重複使用的 cli 並包成 skill (使用 uv + python) 建置在 [todo-skill](todo-skill/)
+```
