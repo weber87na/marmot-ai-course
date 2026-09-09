@@ -3,6 +3,9 @@
 ## text to image
 
 ![img](text_to_image/三隻鼠.png)
+
+`gpt-image-2.5`
+
 ![img](text_to_image/三隻鼠_gpt-image-25.png)
 
 ```
