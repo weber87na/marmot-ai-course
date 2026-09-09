@@ -19,7 +19,7 @@ AI 只要一小時, 畫得還比我好, 慚愧 XD
 
 執行建模大概 50 分鐘, 適合吃飯前下命令, 等模型建立好圖也 render 好, 然後用手機叫他建立網頁即可 (約 40 分鐘)
 
-請大家 [先開啟](https://nkust-moon-festival.weber87na.chatgpt.site) 看看 blender 然後記得要來參加迎新送舊
+請大家 [開啟](https://nkust-moon-festival.weber87na.chatgpt.site) 看看 blender 然後記得要來參加迎新送舊
 
 
 模型建立提示詞如下
