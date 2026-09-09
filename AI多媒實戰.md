@@ -3,6 +3,8 @@
 ## text to image
 
 ![img](text_to_image/三隻鼠.png)
+![img](text_to_image/三隻鼠_gpt-image-25.png)
+
 ```
 產生一張寫實的土撥鼠, 河狸, 袋熊在同一個地區的有趣圖片.
 ```
