@@ -1,3 +1,34 @@
+[最美 400 系列](https://github.com/weber87na/Taiwan-s-Most-Beautiful-400-Series/tree/main)
+
+![400](https://raw.githubusercontent.com/weber87na/Taiwan-s-Most-Beautiful-400-Series/refs/heads/main/400.jpg)
+
+![404a](https://raw.githubusercontent.com/weber87na/Taiwan-s-Most-Beautiful-400-Series/refs/heads/main/404a.jpg)
+## http status code
+
+|    Code | 名稱                            | 白話解釋                      | 常見情況                            |
+| ------: | ----------------------------- | ------------------------- | ------------------------------- |
+| **200** | OK                            | 成功                        | `GET` 成功取得資料                    |
+| **201** | Created                       | 建立成功                      | `POST` 新增會員、訂單                  |
+| **204** | No Content                    | 成功，但沒有資料回傳                | `DELETE` 成功、更新成功但不回傳內容          |
+| **301** | Moved Permanently             | 永久重新導向                    | 網站永久搬到新網址                       |
+| **302** | Found                         | 暫時重新導向                    | 登入頁、暫時跳轉                        |
+| **304** | Not Modified                  | 資料沒有變                     | 瀏覽器使用 Cache，不重新下載               |
+| **400** | Bad Request                   | Request 格式或內容有問題          | JSON 格式錯、參數錯誤                   |
+| **401** | Unauthorized                  | 沒有通過身分驗證                  | Token 沒帶、Token 過期或錯誤            |
+| **403** | Forbidden                     | 身分確認了，但沒有權限               | 一般使用者存取 Admin API               |
+| **404** | Not Found                     | 找不到資源                     | URL 錯誤、指定資料不存在                  |
+| **405** | Method Not Allowed            | HTTP Method 用錯            | API 只接受 `POST`，卻使用 `GET`        |
+| **407** | Proxy Authentication Required | Proxy Server 要求身分驗證       | 公司／學校 Proxy 要求帳號密碼              |
+| **409** | Conflict                      | 資料發生衝突                    | Email 已註冊、資料重複                  |
+| **415** | Unsupported Media Type        | 傳送的資料格式不支援                | API 要 JSON，`Content-Type` 卻設錯   |
+| **422** | Unprocessable Content         | Request 看得懂，但資料驗證失敗       | Email 格式錯、必填欄位沒填                |
+| **429** | Too Many Requests             | Request 太多                | API Rate Limit、短時間呼叫太頻繁         |
+| **500** | Internal Server Error         | Server 程式發生錯誤             | Backend Exception、程式 Bug        |
+| **502** | Bad Gateway                   | Gateway 收到上游 Server 的錯誤回應 | Nginx / Proxy 後面的 API Server 掛掉 |
+| **503** | Service Unavailable           | 服務暫時無法使用                  | 維護中、Server 過載                   |
+| **504** | Gateway Timeout               | 上游 Server 回應太久            | API 處理太久、Gateway 等到 Timeout     |
+| **508** | Loop Detected                 | Server 偵測到循環              | 資源互相參照形成無限循環                    |
+
 ## todo 網站建立
 
 最後介紹怎麼把前端的資料保存到後端, 這裡為了方便所以使用 sqlite 這種檔案式資料庫, 實際環境會使用如 oracle, postgres, mssql, mariadb, mysql 這些重量級的服務
