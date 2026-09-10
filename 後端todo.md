@@ -41,7 +41,7 @@
 
 這裡需要使用 [sqlitebrowser](https://sqlitebrowser.org/) 這個免費的工具來建立資料庫
 
-因為平常沒在用這種東西, 我有 vim 中毒, 所以 fork vibe coding 編譯了一個, 如果你也 vim 中讀的話可以用我[這個版本](https://github.com/weber87na/sqlitebrowser/releases/tag/vim-builtin-23)
+因為平常沒在用這種東西, 我有 vim 中毒, 所以 fork vibe coding 編譯了一個, 如果你也 vim 成癮的話可以用我[這個版本](https://github.com/weber87na/sqlitebrowser/releases/tag/vim-builtin-23)
 
 
 ```markdown
