@@ -3,7 +3,15 @@
 ![400](https://raw.githubusercontent.com/weber87na/Taiwan-s-Most-Beautiful-400-Series/refs/heads/main/400.jpg)
 
 ![404a](https://raw.githubusercontent.com/weber87na/Taiwan-s-Most-Beautiful-400-Series/refs/heads/main/404a.jpg)
+
+![500](https://wubai.com/wp-content/uploads/2025/09/20250924181943_0_89aa69.jpg)
+
 ## http status code
+
+製作後端 todo 之前先到 [伍佰的官網](https://wubai.com) 來看看 http status code
+
+https://wubai.com
+
 
 |    Code | 名稱                            | 白話解釋                      | 常見情況                            |
 | ------: | ----------------------------- | ------------------------- | ------------------------------- |
