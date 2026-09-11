@@ -9,11 +9,13 @@
 
 AI 只要一小時, 畫得還比我好, 慚愧 XD
 
-![照騙](blender_建模/林皇宮.jpg)
-
 此外很多年前我用 3d max 畫了做過一個 UFO + 金字塔的世界末日動畫, 不過已經搞丟了, 趁這把也嘗試還原看看當年的效果, 感覺還不太行 XD
 
 [金字塔 UFO](https://www.youtube.com/watch?v=rXRF6StdscQ)
+
+---
+
+![照騙](blender_建模/林皇宮.jpg)
 
 剛好 meeting 也被問到 blender 能幹嘛? 其實不能幹嘛, 就是炫炮 ~
 
