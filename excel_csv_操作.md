@@ -1,12 +1,22 @@
+這裡跟風 [鈴木一朗打爆窗戶](https://www.youtube.com/watch?v=FbyiNDFoP1Y)
+
+![img](打爆玻璃.jpg)
+
 需要先安裝 [ChatGPT for Excel](https://chatgpt.com/zh-Hant/apps/spreadsheets/), 它可以直接掛載在 Excel 裡操作.
 
 接著下載 [鈴木一朗資料集](https://www.kaggle.com/datasets/jarredpriester/ichiro-suzuki-mlb-career-stats).
 
 將這個 CSV 另存為 Excel 檔案, 否則 ChatGPT 可能無法正常儲存.
 
-此外, 它使用的技能呼叫符號也不同: 使用 `@` 來指定工作表, 使用 slash `/` 來呼叫技能, plugin 及其他命令.
+懶得下載請使用 `excel_csv_一朗` 的資料夾
+
+`Ichiro.csv` 為資料檔
+
+`Ichiro.xlsx` 為做好的結果檔
 
 不過 `ChatGPT for Excel` 目前仍是 beta 版, 所以有些功能不太穩定, 例如寄信功能我就無法寄出.
+
+它使用的技能呼叫符號也不同: 使用 `@` 來指定工作表, 使用 slash `/` 來呼叫技能, plugin 及其他命令.
 
 ```csv
 Year,Age,Tm,Lg,G,PA,AB,R,H,2B,3B,HR,RBI,SB,CS,BB,SO,BA,OBP,SLG,OPS,OPS+,TB,GDP,HBP,SH,SF,IBB
