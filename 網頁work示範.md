@@ -1,5 +1,7 @@
 ## google spark
 
+![img](假的.webp)
+
 [參考影片](https://www.youtube.com/watch?v=IEOZWcVOn8I)
 
 談了那麼多 `ChatGPT` 的功能, 這裡介紹下 google 的功能

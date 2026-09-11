@@ -1,3 +1,5 @@
+範例檔案位於 `image_toimage` `text_to_image` `手繪`
+
 # AI 圖片生成
 
 AI 生圖相信大家都已經玩過了, 這裡還是快速帶一下

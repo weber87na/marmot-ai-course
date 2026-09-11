@@ -7,6 +7,8 @@
 
 以我自己為例, 我撰寫了大量技術 blog 文章, 這裡拿 50 篇我寫的 Markdown 來提煉. 這樣我離職後, 好像就隨時有人可以取代我?
 
+檔案在 `blog風格萃取` 資料夾內
+
 ```text
 [$skill-creator](C:/Users/weberchang/.codex/skills/.system/skill-creator/SKILL.md) 查看這裡面的 *.md, 提煉出我的寫作風格, 讓我日後當作 skill 使用.
 ```
