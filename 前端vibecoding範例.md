@@ -1,6 +1,6 @@
 ## 適合 vibe coding 發想 idea 的網站
 
-以下是幾個 vibe coding 酷炫網站的優質素材, 之前抽籤也有用到其中一個
+以下是幾個 vibe coding 酷炫網站的優質素材, 之前 [抽學長姐](https://youtu.be/vH9C7CtINYM) 也有用到其中一個
 
 因為 AI 更適合 one shot, few shot, 所以給他範例原始碼請他做成自己心中的樣子往往成功率更高
 
