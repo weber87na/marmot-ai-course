@@ -5,16 +5,9 @@
 
 我是一個有十年經驗的工程師, 曾服務賣牛肉麵的公司, 電風工廠
 
-可以在我的 [blog](https://blog.lasai.com.tw/) 或 [YT](https://www.youtube.com/@ladisai) 找到我
+可以在我的 [codepen](https://codepen.io/weber87na) [blog](https://blog.lasai.com.tw/) 或 [YT](https://www.youtube.com/@ladisai) 找到我
 
 ![img](封面圖/辛普森鼠.jpg)
-
-
-## 狀態說明
-
-- ✅ 已完成
-- 🟡 進行中
-- ⬜ 尚未開始或待補充
 
 ## 課程地圖
 
