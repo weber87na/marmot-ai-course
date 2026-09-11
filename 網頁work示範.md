@@ -1,6 +1,6 @@
 ## google spark
 
-![img](假的.webp)
+![img](其他插圖/假的.webp)
 
 [參考影片](https://www.youtube.com/watch?v=IEOZWcVOn8I)
 
