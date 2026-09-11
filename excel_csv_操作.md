@@ -1,6 +1,6 @@
 這裡跟風 [鈴木一朗打爆窗戶](https://www.youtube.com/watch?v=FbyiNDFoP1Y)
 
-![img](打爆玻璃.jpg)
+![img](excel_csv_一朗/打爆玻璃.jpg)
 
 需要先安裝 [ChatGPT for Excel](https://chatgpt.com/zh-Hant/apps/spreadsheets/), 它可以直接掛載在 Excel 裡操作.
 
