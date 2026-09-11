@@ -35,8 +35,6 @@
 
 由於我本來就寫技術文章, 這裡先用我之前預錄的影片, 也可以參考其他人的影片, 做成技術文章後再發布, LOL.
 
-以下內容可以貼到 Google Spark, 迅速建立逐字稿.
-
 ```text
 [$weber-blog-writing-style](C:/Users/weberchang/.codex/skills/weber-blog-writing-style/SKILL.md) [https://youtu.be/7FfcfK7ETTM](https://youtu.be/7FfcfK7ETTM) 參考這部影片中使用的指令撰寫文章, 以下為逐字稿.
 
