@@ -1,3 +1,4 @@
+## 旅遊影片
 介紹 `Remotion` 這個功能, 它可以使用圖片建立動畫, 需要先從外掛程式下載並安裝.
 
 接著輸入以下提示詞即可. 這個案例大約需要執行 1 小時, 這裡先以之前的旅遊範例來說明.
@@ -14,6 +15,7 @@
 已完成 15 秒, 1920x1080, 30fps 的高屏旅遊廣告影片.
 ```
 
+## 高雄都市傳說
 接著製作 `高雄都市傳說` 的影片, 成品請參考這支 [Short](https://www.youtube.com/shorts/a2R9zSM-S_k).
 
 這個案例的執行時間約為 1.5 小時.
@@ -32,6 +34,7 @@ Hashtags:
 #高雄都市傳說 #高雄 #都市傳說 #街頭傳奇 #台灣奇聞 #地方故事 #高雄人物 #靈異氛圍 #YouTubeShorts #Shorts
 ```
 
+## 老鼠廢片
 其他案例也可以使用相同原理. 只需要先將剛才的提示詞交給網頁版的 ChatGPT, 產生 meta-prompt, 就能得到固定格式的提示詞. 這裡示範 `老鼠廢片` [Short](https://www.youtube.com/shorts/SCZlvqt9G8c).
 
 ```markdown
@@ -123,6 +126,8 @@ Hashtags:
    - Shorts
 4. 標題需要具有好奇感, 例如強調 "20 種風格", "AI 生成", "哪隻最可愛", "最後一隻超意外" 等元素.
 ```
+
+## 啦啦隊
 
 最後, 想介紹 [自動上傳啦啦隊影片的功能](https://www.youtube.com/watch?v=KQIbrDXTAWI&feature=youtu.be). 它需要使用將影片上傳到 YouTube 的 CLI 工具, 工具可以自行尋找適合的, 我則是自己用 vibe coding 做了一個 [Python 工具](https://github.com/weber87na/youtube-publish). 如果搭配排程功能, 應該就能在睡覺時自動發片, 醒來後審核即可.
 
