@@ -14,7 +14,13 @@
 ## work 其他用法
 如果你是開發人員或想要替程式加點功能, 也可以直接用 `work` 來做. 搭配 GitHub 的 GitHub Actions, 可以快速建立線上編譯環境.
 
-尤其點數燒不完的時候, 用手機丟下去做, 人跑去睡覺最適合.
+需要安裝及設定 `ChatGPT Codex Connector`
+
+https://chatgpt.com/codex/cloud/settings/connectors
+
+`Settings` => `Integrations` => `Applications` 接著允許要編輯的 repository 即可
+
+這個方法尤其點數燒不完的時候, 用手機丟下去做, 人跑去睡覺最適合.
 
 像我自己是 `Vim` 邪教的信徒. 今天最後面介紹的後端程式會使用 `SQLite`, 我們會用到 `SQLiteBrowser` 這個工具, 但它不支援 `Vim` 這類功能, 所以我請它增加.
 
