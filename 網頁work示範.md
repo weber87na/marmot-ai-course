@@ -1,5 +1,3 @@
-![假的](其他插圖/法師.png)
-
 ## google spark
 
 [參考影片](https://www.youtube.com/watch?v=IEOZWcVOn8I)
