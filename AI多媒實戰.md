@@ -2,11 +2,11 @@
 
 AI 生圖相信大家都已經玩過了, 這裡還是快速帶一下
 
-因為 gpt-image-2.5 出了, 可以先看看他的 [指南](https://developers.openai.com/api/docs/guides/image-prompting) 寫什麼
-
 如果靈感匱乏可以參考這裡的 [提示詞庫](https://stablediffusionweb.com/zh-tw/prompts)
 
 也可以直接把圖片丟給 ChatGPT 請他幫你把提示詞產生出來
+
+有興趣也可以看看他的 [指南](https://developers.openai.com/api/docs/guides/image-prompting) 寫什麼
 
 ## 手繪功能
 
