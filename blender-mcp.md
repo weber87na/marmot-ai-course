@@ -43,6 +43,8 @@ copilot 則可以使用 `#` 來指令 mcp 這裡使用 `#blender` 即可
 #blender 繪製一個蘋果 並且套用 #file:apple_uv_texture.png
 ```
 
+![img](blender_mcp/apple.png)
+
 補充: 如果是 codex 要確認可以參考以下圖片
 
 ![img](blender_mcp/codex_step1.png)
