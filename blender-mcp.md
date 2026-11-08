@@ -1,5 +1,10 @@
 安裝 [blender](https://www.blender.org/)
 
+因為學校環境 mcp 滿詭異的所以用 codex 直接這樣安裝
+```
+幫我安裝這個 mcp https://github.com/ahujasid/mcp-for-blender
+```
+
 安裝 [mcp server](https://github.com/ahujasid/mcp-for-blender)
 
 windows
@@ -45,8 +50,27 @@ copilot 則可以使用 `#` 來指令 mcp 這裡使用 `#blender` 即可
 
 ![img](blender_mcp/apple.png)
 
+
+## 補充
 補充: 如果是 codex 要確認可以參考以下圖片
 
 ![img](blender_mcp/codex_step1.png)
 
 ![img](blender_mcp/codex_step2.png)
+
+手動設定 vscode 的方式
+
+`vscode` 在 `.vscode` 底下建立 `mcp.json`
+```
+
+{
+  "servers": {
+    "blender": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-for-blender"]
+    }
+  }
+}
+
+```
