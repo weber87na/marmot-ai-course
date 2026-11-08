@@ -48,6 +48,7 @@
 | 國內旅遊規劃 | ✅ | [旅遊規劃](旅遊規劃.md) |
 | Remotion 製作影片 | ✅ | [Remotion 製作影片](remotion製作影片.md) |
 | Blender 簡單建模 | ✅ | [Blender 建模](blender建模.md) |
+| Blender 使用 mcp | ✅ | [Blender 建模](blender-mcp.md) |
 
 ### 4. Vibe Coding 與前端實作
 
