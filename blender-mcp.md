@@ -43,9 +43,19 @@ copilot 則可以使用 `#` 來指令 mcp 這裡使用 `#blender` 即可
 使用 $imagegen 繪製寫實蘋果的紋理 我要給 blender 建模使用 要包含 uv 貼圖逼真的效果
 ```
 
-呼叫 copilot 繪製蘋果模型並且套用 codex 繪製的紋理
+```
+使用 $imagegen 繪製寫實蘋果 uv 紋理圖片 另外繪製葉子還有梗的貼圖
+```
+
+呼叫 copilot 繪製蘋果模型並且套用 codex 繪製的紋理 不過模型是自動選所以效果不佳
 ```
 #blender 繪製一個蘋果 並且套用 #file:apple_uv_texture.png
+```
+
+改用 codex sol 來建立
+
+```
+接著使用 blender mcp 繪製蘋果模型並且把剛剛的紋理貼圖貼上
 ```
 
 ![img](blender_mcp/apple.png)
